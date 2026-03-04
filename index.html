@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Well Read — RAG Dashboard</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+  <!-- Our Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ── HEADER ─────────────────────────────────────── -->
+  <header>
+    <div class="header-left">
+      <div class="logo-mark">WR</div>
+      <div>
+        <h1>Well Read — RAG Data Explorer</h1>
+        <div class="subtitle">Retrieval-Augmented Intelligence · Production &amp; Pressure Platform</div>
+      </div>
+    </div>
+    <div class="header-stats">
+      <div class="hstat">
+        <div class="hstat-value" id="h-wells">20</div>
+        <div class="hstat-label">Active Wells</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-value" id="h-records">3,000</div>
+        <div class="hstat-label">Total Records</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-value" id="h-anomalies">—</div>
+        <div class="hstat-label">Anomalies</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-value" id="h-avgpress">—</div>
+        <div class="hstat-label">Avg WH Press (psig)</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── MAIN LAYOUT ────────────────────────────────── -->
+  <div class="main">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        Wells <span class="well-count" id="visible-count">20</span>
+      </div>
+      <div class="search-box">
+        <input
+          type="text"
+          id="well-search"
+          placeholder="🔍 Ask anything... e.g. high pressure wells"
+          oninput="handleRAGSearch()"
+        />
+        <div class="rag-hint" id="rag-hint"></div>
+      </div>
+      <div id="well-list"></div>
+    </div>
+
+    <!-- CONTENT PANEL -->
+    <div class="content" id="main-content">
+      <!-- Rendered by JS -->
+    </div>
+
+  </div>
+</div>
+
+<!-- ── SCRIPTS (order matters!) ───────────────────── -->
+<script src="js/data.js"></script>      <!-- RAG chunks & timeseries data  -->
+<script src="js/rag.js"></script>       <!-- RAG engine: retrieve & rank    -->
+<script src="js/charts.js"></script>    <!-- Chart rendering helpers        -->
+<script src="js/ui.js"></script>        <!-- Sidebar, KPIs, table rendering -->
+<script src="js/app.js"></script>       <!-- App init & event wiring        -->
+
+</body>
+</html>
