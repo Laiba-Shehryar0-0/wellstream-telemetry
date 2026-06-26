@@ -1,6 +1,6 @@
-# Well Read — RAG Dashboard
+# Wellstream Telemetry 
 
-A multi-file interactive dashboard for oil well production & pressure data,
+A multi-file interactive RAG dashboard for oil well production & pressure data,
 built with a client-side **RAG (Retrieval-Augmented Generation)** engine.
 
 ---
